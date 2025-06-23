@@ -119,9 +119,9 @@ Modify `lib/core/theme.dart` to customize:
 - Spacing and layout
 
 ### Content
-Update the following files for content changes:
-- `lib/data/portfolio_data.dart` - All portfolio content
-- `images/` - Add your photos and project images
+<img width="1512" alt="Screenshot 2025-06-23 at 12 07 47 PM" src="https://github.com/user-attachments/assets/0358d8a6-6873-4ccb-bdfb-65e7039e49de" />
+<img width="1512" alt="Screenshot 2025-06-23 at 12 08 26 PM" src="https://github.com/user-attachments/assets/1d675068-f83e-4cbe-86cf-efbb40f077e6" />
+<img width="1512" alt="Screenshot 2025-06-23 at 12 08 04 PM" src="https://github.com/user-attachments/assets/1a33a465-cfcc-4b35-abeb-cc23729d652f" />
 
 ## 🚀 Deployment
 
