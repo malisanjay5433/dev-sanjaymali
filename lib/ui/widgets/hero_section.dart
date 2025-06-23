@@ -223,7 +223,7 @@ class HeroSection extends StatelessWidget {
 
   void _launchCV() async {
     const url =
-        'https://drive.google.com/file/d/1H72BxkL-vaqv2DdF3lSDYmMgYDSmB6BO/view?usp=sharing';
+        'https://drive.google.com/file/d/1DBEgZCTvcXi3fdB_mm0xAsvP53wjcv8s/view?usp=sharing';
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     }
