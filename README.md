@@ -154,7 +154,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-- **Email**: sanjay.mali@example.com
+- **Email**: malisanjay5433@@gmail.com
 - **LinkedIn**: [Sanjay Mali](https://www.linkedin.com/in/sanjaymali10/)
 - **GitHub**: [malisanjay5433](https://github.com/malisanjay5433)
 - **Twitter**: [@sanjaymali](https://twitter.com/sanjaymali)
