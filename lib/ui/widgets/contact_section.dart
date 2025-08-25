@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../core/url_service.dart';
 import '../../core/neumorphic.dart';
 import '../../core/theme.dart';
 import '../../data/portfolio_data.dart';
@@ -353,14 +353,14 @@ class _ContactSectionState extends State<ContactSection> {
 
   void _launchEmail(String email) async {
     final uri = Uri.parse('mailto:$email');
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    }
+            if (await URLService.canLaunchUrl(uri)) {
+          await URLService.launchUrl(uri);
+        }
   }
 
   void _launchUrl(String url) async {
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+    if (await URLService.canLaunchUrl(Uri.parse(url))) {
+      await URLService.launchUrl(Uri.parse(url));
     }
   }
 

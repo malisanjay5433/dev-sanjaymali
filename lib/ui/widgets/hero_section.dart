@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../core/url_service.dart';
 import '../../core/neumorphic.dart';
 import '../../core/theme.dart';
 import '../../data/portfolio_data.dart';
@@ -222,10 +222,10 @@ class HeroSection extends StatelessWidget {
   }
 
   void _launchCV() async {
-    const url =
-        'https://drive.google.com/file/d/1DBEgZCTvcXi3fdB_mm0xAsvP53wjcv8s/view?usp=sharing';
-    if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url));
+
+    const url = 'https://drive.google.com/file/d/1LIfN8TzdEeVrAHpeJ6yyUJ02i3Vv7Nz_/view?usp=sharing';
+    if (await URLService.canLaunchUrl(Uri.parse(url))) {
+      await URLService.launchUrl(Uri.parse(url));
     }
   }
 
