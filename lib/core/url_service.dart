@@ -1,26 +1,24 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'dart:js' as js;
 
 class URLService {
   static Future<bool> canLaunchUrl(Uri uri) async {
-    // For now, always return true to avoid compilation issues
-    // TODO: Re-implement when url_launcher compatibility is fixed
+    // For web, we can always try to launch URLs
     return true;
   }
 
   static Future<bool> launchUrl(Uri uri) async {
     try {
       if (kIsWeb) {
-        // For web, we can use window.open
-        // This is a simple workaround
+        // For web, use window.open to launch URLs
+        js.context.callMethod('open', [uri.toString(), '_blank']);
         return true;
-      } else if (Platform.isIOS || Platform.isAndroid) {
+      } else {
         // For mobile, we'll just return true for now
         // TODO: Re-implement when url_launcher compatibility is fixed
         print('Would launch URL: $uri');
         return true;
       }
-      return false;
     } catch (e) {
       print('Error launching URL: $e');
       return false;

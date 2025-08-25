@@ -194,28 +194,7 @@ class HeroSection extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 64),
 
-          // Scroll Indicator
-          AnimatedBuilder(
-            animation: fadeController,
-            builder: (context, child) =>
-                Opacity(opacity: fadeController.value * 0.7, child: child),
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.keyboard_arrow_down,
-                  color: AppTheme.textTertiary,
-                  size: 32,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Scroll to explore',
-                  style: Theme.of(context).textTheme.bodySmall,
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -223,7 +202,7 @@ class HeroSection extends StatelessWidget {
 
   void _launchCV() async {
 
-    const url = 'https://drive.google.com/file/d/1LIfN8TzdEeVrAHpeJ6yyUJ02i3Vv7Nz_/view?usp=sharing';
+    const url = 'https://drive.google.com/file/d/1DBEgZCTvcXi3fdB_mm0xAsvP53wjcv8s/view?usp=sharing';
     if (await URLService.canLaunchUrl(Uri.parse(url))) {
       await URLService.launchUrl(Uri.parse(url));
     }

@@ -9,7 +9,7 @@ class PersonalInfo {
   static const String subtitle =
       'Building beautiful, responsive apps using Native iOS and Flutter for mobile and web for domains like Fintech, Insurance, Blockchain, Banking and more.';
   static const String avatarUrl = 'images/avatar.jpeg';
-  static const String email = 'malisanjay5433@example.com';
+  static const String email = 'malisanjay5433@gmail.com';
   static const String location = 'Mumbai, India';
   static const String about = '''
 👋 Hi, I'm Sanjay Mali — a passionate developer crafting beautiful, scalable apps for iOS, Android, Flutter, and Web. If it runs code, I'll probably build something for it.\n
@@ -128,7 +128,7 @@ final List<ProjectCategory> projectCategories = [
         description:
             'A comprehensive financial technology application with real-time trading, portfolio management, and AI-powered investment recommendations.',
         imageUrl: 'images/avatar.jpeg',
-        liveUrl: 'https://fintech-app.example.com',
+        liveUrl: 'https://github.com/malisanjay5433/fintech-app',
         githubUrl: 'https://github.com/sanjaymali/fintech-app',
         technologies: [
           'Flutter',
@@ -152,7 +152,7 @@ final List<ProjectCategory> projectCategories = [
         description:
             'Modern insurance platform with automated claims processing, policy management, and customer portal.',
         imageUrl: 'images/avatar.jpeg',
-        liveUrl: 'https://insurance-platform.example.com',
+        liveUrl: 'https://github.com/malisanjay5433/insurance-platform',
         githubUrl: 'https://github.com/sanjaymali/insurance-platform',
         technologies: [
           'Swift',

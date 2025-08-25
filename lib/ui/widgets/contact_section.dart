@@ -334,11 +334,39 @@ class _ContactSectionState extends State<ContactSection> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // TODO: Implement form submission
+      // Get form data
+      final name = _nameController.text.trim();
+      final email = _emailController.text.trim();
+      final message = _messageController.text.trim();
+      
+      // Create email content
+      final subject = 'Portfolio Contact: Message from $name';
+      final body = '''
+Hello Sanjay,
+
+You have received a new message from your portfolio website:
+
+Name: $name
+Email: $email
+Message: $message
+
+Best regards,
+Portfolio Contact Form
+''';
+      
+      // Create mailto URI
+      final mailtoUri = Uri.parse(
+        'mailto:malisanjay5433@gmail.com?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}'
+      );
+      
+      // Launch email client
+      _launchEmail(mailtoUri.toString());
+      
+      // Show success message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            'Thank you for your message! I\'ll get back to you soon.',
+            'Thank you for your message! Opening email client...',
           ),
           backgroundColor: AppTheme.primaryColor,
         ),
@@ -352,10 +380,10 @@ class _ContactSectionState extends State<ContactSection> {
   }
 
   void _launchEmail(String email) async {
-    final uri = Uri.parse('mailto:$email');
-            if (await URLService.canLaunchUrl(uri)) {
-          await URLService.launchUrl(uri);
-        }
+    final uri = Uri.parse(email.startsWith('mailto:') ? email : 'mailto:$email');
+    if (await URLService.canLaunchUrl(uri)) {
+      await URLService.launchUrl(uri);
+    }
   }
 
   void _launchUrl(String url) async {

@@ -19,7 +19,7 @@ class AboutSection extends StatelessWidget {
             : isTablet
             ? 40
             : 24,
-        vertical: isTablet ? 80 : 60,
+        vertical: isTablet ? 70 : 60,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,6 +27,14 @@ class AboutSection extends StatelessWidget {
           // Section Title
           Row(
             children: [
+              // Text(
+              //   '01',
+              //   style: Theme.of(context).textTheme.displaySmall?.copyWith(
+              //     color: AppTheme.primaryColor,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
+              // const SizedBox(width: 16),
               Text(
                 'About Me',
                 style: Theme.of(context).textTheme.headlineLarge,
@@ -42,14 +50,14 @@ class AboutSection extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(flex: 2, child: _buildAboutText(context)),
+                Expanded(flex: 2, child: _buildAboutContent(context)),
                 const SizedBox(width: 64),
                 Expanded(flex: 1, child: _buildStats(context)),
               ],
             ),
           ] else ...[
             // Mobile/Tablet Layout
-            _buildAboutText(context),
+            _buildAboutContent(context),
             const SizedBox(height: 48),
             _buildStats(context),
           ],
@@ -58,30 +66,36 @@ class AboutSection extends StatelessWidget {
     );
   }
 
-  Widget _buildAboutText(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          PersonalInfo.about,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        const SizedBox(height: 32),
-        // Contact Info
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildInfoItem(
-              context,
-              Icons.location_on,
-              'Location',
-              PersonalInfo.location,
-            ),
-            const SizedBox(height: 16),
-            _buildInfoItem(context, Icons.email, 'Email', PersonalInfo.email),
-          ],
-        ),
-      ],
+  Widget _buildAboutContent(BuildContext context) {
+    return NeumorphicBox(
+      depth: 8.0,
+      borderRadius: 24,
+      padding: const EdgeInsets.all(32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            PersonalInfo.about,
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.8),
+          ),
+          const SizedBox(height: 32),
+
+          // // Quick Info
+          // Wrap(
+          //   spacing: 32,
+          //   runSpacing: 16,
+          //   children: [
+          //     _buildInfoItem(
+          //       context,
+          //       Icons.location_on,
+          //       'Location',
+          //       PersonalInfo.location,
+          //     ),
+          //     _buildInfoItem(context, Icons.email, 'Email', PersonalInfo.email),
+          //   ],
+          // ),
+        ],
+      ),
     );
   }
 
@@ -139,66 +153,31 @@ class AboutSection extends StatelessWidget {
     String label,
     IconData icon,
   ) {
-    final isSmallScreen = MediaQuery.of(context).size.width < 600;
-    
     return NeumorphicBox(
       depth: 6.0,
       borderRadius: 16,
-      padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
-      child: isSmallScreen 
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Icon(icon, color: AppTheme.primaryColor, size: 24),
-                  const SizedBox(width: 8),
-                  if (number.isNotEmpty)
-                    Text(
-                      number,
-                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: AppTheme.primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              Text(
-                label,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppTheme.textSecondary,
-                ),
-                textAlign: TextAlign.left,
-                overflow: TextOverflow.visible,
-              ),
-            ],
-          )
-        : Row(
-            children: [
-              Icon(icon, color: AppTheme.primaryColor, size: 32),
-              const SizedBox(width: 12),
-              if (number.isNotEmpty)
-                Text(
-                  number,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    color: AppTheme.primaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              const SizedBox(width: 4),
-              Expanded(
-                child: Text(
-                  label,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppTheme.textSecondary,
-                  ),
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.visible,
-                ),
-              ),
-            ],
+      padding: const EdgeInsets.all(20),
+      child: Row(
+        children: [
+          Icon(icon, color: AppTheme.primaryColor, size: 32),
+          const SizedBox(height: 12),
+          Text(
+            number,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              color: AppTheme.primaryColor,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: AppTheme.textSecondary),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
